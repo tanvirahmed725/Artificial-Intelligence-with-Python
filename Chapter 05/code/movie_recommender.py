@@ -2,7 +2,7 @@ import argparse
 import json
 import numpy as np
 
-from compute_scores import pearson_score
+from compute_scores import pearson_score, euclidean_score
 from collaborative_filtering import find_similar_users
 
 def build_arg_parser():
@@ -20,7 +20,7 @@ def get_recommendations(dataset, input_user):
     similarity_scores = {}
 
     for user in [x for x in dataset if x != input_user]:
-        similarity_score = pearson_score(dataset, input_user, user)
+        similarity_score = euclidean_score(dataset, input_user, user)
 
         if similarity_score <= 0:
             continue
