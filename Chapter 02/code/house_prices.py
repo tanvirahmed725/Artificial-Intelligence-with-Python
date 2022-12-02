@@ -16,7 +16,7 @@ X_train, y_train = X[:num_training], y[:num_training]
 X_test, y_test = X[num_training:], y[num_training:]
 
 # Create Support Vector Regression model
-sv_regressor = SVR(kernel='linear', C=1.0, epsilon=0.1)
+sv_regressor = SVR(kernel='linear', C=2.5, epsilon=3.4)
 
 # Train Support Vector Regressor
 sv_regressor.fit(X_train, y_train)
@@ -32,4 +32,6 @@ print("Explained variance score =", round(evs, 2))
 # Test the regressor on test datapoint
 test_data = [3.7, 0, 18.4, 1, 0.87, 5.95, 91, 2.5052, 26, 666, 20.2, 351.34, 15.27]
 print("\nPredicted price:", sv_regressor.predict([test_data])[0])
-
+print("")
+print(data.data)
+print("")
